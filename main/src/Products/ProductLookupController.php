@@ -23,11 +23,9 @@ class ProductLookupController
                 "Product not found\n"
             )->withStatus(Response::STATUS_NOT_FOUND);
         }
-        $data = [
-            "name" => $product->title,
-            "description" => $product->description,
-            "price" => $product->price,
-        ];
+
+        $dataProvider = new ProductLookupStandardDataProvider;
+        $data = $dataProvider->getData($product);
 
         return Response::json($data);
     }

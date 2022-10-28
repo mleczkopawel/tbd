@@ -6,6 +6,7 @@ use FrameworkX\App;
 use FrameworkX\Container;
 use React\Http\Message\Response;
 use Tbd\Main\Products\ProductRepository;
+use Tbd\Main\Recommendations\RecommendationsServiceInterface;
 
 class Application
 {
@@ -17,8 +18,8 @@ class Application
             Products\ProductsListController::class => function (ProductRepository $repository) {
                 return new Products\ProductsListController($repository);
             },
-            Products\ProductLookupController::class => function (ProductRepository $repository) {
-                return new Products\ProductLookupController($repository);
+            Products\ProductLookupController::class => function (ProductRepository $repository, RecommendationsServiceInterface $recommendations) {
+                return new Products\ProductLookupController($repository, $recommendations);
             }
         ]);
 
