@@ -55,5 +55,5 @@ Endpoint konkretnego produktu:
 
 ## Jesteś gotowy
 
-Jeśli wszystko działa, jesteś gotowy, by rozpocząć warsztat. 
+Jeśli wszystko działa, jesteś gotowy, by rozpocząć warsztat.
 Treści zadań oraz wszystkie wymagane informacje otrzymasz w trakcie szkolenia.
