@@ -8,9 +8,12 @@ class ProductLookupController
 {
     private $repository;
 
+    private $dataProvider;
+
     public function __construct(ProductRepositoryInterface $repository)
     {
         $this->repository = $repository;
+        $this->dataProvider =  new ProductLookupDataProviderAbstraction;
     }
 
     public function __invoke(ServerRequestInterface $request)
@@ -24,9 +27,13 @@ class ProductLookupController
             )->withStatus(Response::STATUS_NOT_FOUND);
         }
 
-        $dataProvider = new ProductLookupDataProviderAbstraction;
-        $data = $dataProvider->getData($product);
+        $data = $this->getDataProvider()->getData($product);
 
         return Response::json($data);
+    }
+
+    public function getDataProvider(): ProductLookupDataProviderAbstraction
+    {
+        return $this->dataProvider;
     }
 }
