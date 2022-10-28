@@ -24,7 +24,7 @@ class ProductLookupController
             )->withStatus(Response::STATUS_NOT_FOUND);
         }
 
-        $dataProvider = new ProductLookupStandardDataProvider;
+        $dataProvider = new ProductLookupDataProviderAbstraction;
         $data = $dataProvider->getData($product);
 
         return Response::json($data);
