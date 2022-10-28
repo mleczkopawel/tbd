@@ -8,14 +8,6 @@ then
     exit $ret
 fi
 
-composer run tests
-ret=$?
-if [ $ret != 0 ]
-then
-    exit $ret
-fi
-cd ..
-
 docker-compose build
 ret=$?
 if [ $ret != 0 ]
@@ -37,3 +29,11 @@ if [ $ret != 0 ]
 then
     exit $ret
 fi
+
+composer run tests
+ret=$?
+if [ $ret != 0 ]
+then
+    exit $ret
+fi
+cd ..
